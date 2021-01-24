@@ -1,0 +1,23 @@
+Zadanie 1
+A. Jaka jest korelacja między kwotą rekompensaty oryginalnej i kwotą rekompensaty, dla
+języka?
+B. zrobić zestawienie w którym wylistujemy wszystkie wnioski wraz z informacją o kraju,
+opłatą za usługę wyrażoną kwotowo (nie procentowo) i informacją jaki % średniej
+opłaty w danym kraju ta opłata stanowi
+C. dla odrzuconych wniosków dla których mamy dokumenty w bazie, zrobić zestawienie
+id dokumentu, id_wniosku data otrzymania oraz różnica czasu od otrzymania
+pierwszego dokumentu w ramach danego wniosku (pierwszy otrzymany dokument
+oczywiście będzie miał różnicę 0)
+D. Dla wniosków z polski zrobić zestawienie wniosków, stanu_wniosku, kwoty
+rekompensaty oraz informację czy ta kwota mieście się w 95% przedziale ufności kwot
+rekompensaty dla danego stanu wniosku (zakładamy że 95% przedział ufności to
+przedział (avg - 2SD, avg + 2SD)
+
+Zadanie nr 2
+Loty mogą być krajowe, regionalne - w ramach jednego kontynentu oraz między
+kontynentalne ( patrz tabela: o_trasy). Chcemy zrobić zestawienie, w którym dla każdego
+takiego rodzaju lotów będziemy mieli liczbę wniosków oraz współczynnik wypłat (liczba
+wypłaconych do wszystkich wniosków) w ujęciu rocznym. Dodaj również YoY dla
+współczynnika wypłat
+Uwaga: należy wykluczyć wnioski o statusie nowym, z 2015 roku oraz takie z błędnym
+identyfikatorem podróży. Bliski wschód dla uproszczenia traktujemy jako osobny kontynent.

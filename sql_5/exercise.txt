@@ -1,0 +1,78 @@
+select count (*)
+from athlete_events;
+
+with p1 as (
+    select id,
+           name,
+           sex,
+           games,
+           sport,
+           year,
+           case when height = 'NA' then null else height::integer end as height,
+           case when weight = 'NA' then null else weight::real end as weight,
+           count(*) over (partition by sex, sport, year) as all_by,
+           count(case when height != 'NA' and weight != 'NA' then true end)
+           over (partition by sex, sport, year) as complete,
+           (count(case when height != 'NA' and weight != 'NA' then true end) over
+               (partition by sex, sport, year)) /
+           (count(*) over (partition by sex, sport, year)) :: numeric as comp_all_percent
+    from athlete_events
+order by 3,1),
+
+     p2 as (
+         select *
+         from p1
+         where comp_all_percent >= 0.5 and complete >= 10),
+
+     p3 as (
+         select sex,
+                sport,
+                year,
+                percentile_disc(0.5) within group ( order by height ) as me_height,
+                percentile_disc(0.5) within group ( order by weight ) as me_weight
+         from p2
+         group by 1,2,3
+     ),
+
+     p4 as (
+         select p2.id,
+                p2.name,
+                p2.sex,
+                case when p2.height is null then p3.me_height else p2.height end as height_add,
+                case when p2.weight is null then p3.me_weight else p2.weight end as weight_add
+         from p2
+         join p3 on p2.sex = p3.sex and p2.sport = p3.sport and p2.year = p3.year),
+
+     p5 as (
+         select p4.id,
+                p4.name,
+                p4.sex,
+                p4.height_add,
+                p4.weight_add,
+                (p4.weight_add / p4.height_add ^ 2) * 10000::numeric as bmi
+         from p4),
+
+     p6 as (
+         select p2.id,
+                p2.sex,
+                p2.year,
+                p2.sport,
+                p2.games,
+                p5.bmi,
+                avg(bmi) over (partition by p2.sex,sport,year) as avg_bmi
+         from p2
+         join p5 on p2.id = p5.id)
+
+select p6.sex,
+       p6.year,
+       p6.sport,
+       p6.games,
+       p6.avg_bmi,
+       stddev(avg_bmi) over (partition by sex, sport)
+from p6
+group by 1,2,3,4,5
+order by 1,6;
+
+----------tableau-------------
+
+https://public.tableau.com/profile/tomasz5442#!/vizhome/HW6_15761927904120/Dashboard1

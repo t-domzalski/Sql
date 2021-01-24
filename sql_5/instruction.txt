@@ -1,0 +1,50 @@
+1.SQL
+a. Należy wczytać plik athlete_events.csv, zawierający zawodników startujących
+w igrzyskach olimpijskich. (źródło: kaggle.com)
+b. W wielu przypadkach brakuje informacji o wzroście i wadze zawodników,
+dane te będzie trzeba uzupełnić. Dane te należy uzupełnić wartością mediany
+wagi lub wzrostu zawodników tej samej płci, konkurencji sportowej (pole
+sport) i roku igrzysk.
+c. Jeżeli w danym przecięciu płeć-sport-rok jest mniej niż połowa zawodników z
+kompletnymi danymi wzrostu i wagi, wtedy należy z naszego zbioru usunąć
+wszystkich zawodników tego przecięcia.
+d. Tak samo należy usunąć takie przecięcia, w których jest mniej niż 10
+zawodników z kompletnymi danymi.
+e. Dla tak oczyszczonego zbioru należy jeszcze dodać pole bmi wyliczone wg
+wzoru: waga [kg]/ wzrost [m] ^2.
+f. Ponadto należy wyliczyć średnie bmi w przecięciach płeć-sport-rok.
+g. Następnie utworzyć zapytanie w którym otrzymamy sporty dla kobiet oraz
+mężczyzn, które charakteryzują się największą zmiennością na przestrzeni
+lat. Czyli takie, które mają największe odchylenie standardowe z średnich
+rocznych wartości - te dyscypliny będziemy analizować w Tableau.
+h. Taki zbiór danych należy wyeksportować do pliku csv - w drugiej części
+zadania będziemy go wczytywać w Tableau.
+
+2.Tableau
+a. W Tableau należy utworzyć wymiary:
+i.
+sport_group_m - podział na sport o największym odchyleniu u
+mężczyzn oraz pozostałe
+ii.
+sport_group_f - podział na sport o największym odchyleniu u kobiet
+oraz pozostałe
+Wymiary można utworzyć np w następujący sposób:
+1) "Create calculated field..." klikając prawym przyciskiem w poniżej
+wyświetlonych miar w oknie measures.
+2) Utworzoną w ten sposób miarę zamienić na wymiar "Convert to
+Dimension"
+b. Sporządzić wykres liniowy przedstawiający średnie BMI w kolejnych
+igrzyskach z liniami wg wymiaru sport_group_m. Wykres liniowy ma się
+rozpoczynać w roku gdzie pierwszy raz pojawiła się dyscyplina z
+sport_group_m. Wartości średnich bmi pokazywać tylko dla mężczyzn oraz
+sportów z sezonu odpowiadającemu wyróżnionemu sportowi (letnie, zimowe
+IO).c. Dodatkowo sporządzić wykres kolumnowy średnich BIM po dyscyplinach
+(pole sport) z ostatnich igrzysk i wyróżnić analizowany sport innym kolorem
+(najlepiej takim samym jaki na wykresie liniowym)
+d. Na dashboardzie umieści oba wykresy obok siebie, pamiętając o tytułach
+wykresów oraz podpisach osi w języku angielskim by były spójne z
+angielskimi nazwami dyscyplin.
+e. Analogicznie wykresy zrobić dla kobiet. Na dashboardzie umieścić poniżej
+wykresów mężczyzn.
+f. Wizualizację zapisać na serwerze i link umieścić w pliku tekstowym wraz z
+zapytaniami sql.

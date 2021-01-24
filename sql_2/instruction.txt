@@ -1,0 +1,21 @@
+2. Zaimportuj dołączony plik Sacramentorealestatetransactions.csv i napisz zapytania
+wyciągające następujące informacje:
+a. Najmniejsza wartość zakupu(price) nieruchomości.
+b. Największa wartość zakupu nieruchomości.
+c. Ile razy transakcja dotyczyła nieruchomości typu ‘Residential’.
+d. Średnia wartość transakcji w mieście ‘SACRAMENTO’.
+e. Największa powierzchnia nieruchomości w transakcjach w mieście ‘RIO LINDA’.
+
+3. Praca z bazą danych airHelp.
+Wiedząc, że w firmie jedyne możliwe wartości rekompensaty na pasażera to 250, 400 i 600:
+a. wypisz pozostałe, niespełniające tego wymagania.
+b. Ile jest takich wniosków?
+
+4. Praca z bazą danych airHelp. Przeanalizujmy tabele wnioski i
+analiza_prawna:
+a. Ile jest wniosków dla danych lat i partnerów?
+b. Ile procent wniosków stanowią wnioski odrzucone?
+c. Jaka jest średnia wartość rekompensat wniosków odrzuconych dla danych lat i
+partnerów?
+d. Jaka jest średnia ilość dni między datą wysłania a datą odpowiedzi sądu dla analizy
+prawnej? Co sądzisz o tej wartości?

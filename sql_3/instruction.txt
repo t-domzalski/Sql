@@ -1,0 +1,14 @@
+Przeanalizujmy tabele wnioski, podroze i
+szczegoly_podrozy:
+
+a. Ile jest przeterminowanych wniosków (podróż
+dawniej niż 1000 dni od daty zgłoszenia)? Wypisz je.
+b. Ilu klientów podróżowało w celach biznesowych? Ile
+rekompensat otrzymali? Jaką sumarycznie kwotę
+otrzymali?
+c. Jak szybko (średnia w dniach) klienci biznesowi
+zgłaszają wnioski po podróży (data wyjazdu)?
+d. Wyświetl dane o zmianie ilości analiz prawnych z
+roku na rok(year over year).
+e. Podaj medianę i kwartyle (Q1 i Q3) procentu opłaty
+za usługę wniosków z analizą prawną.

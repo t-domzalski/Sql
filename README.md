@@ -1,1 +1,3 @@
-# Sql
+# Exercises PostgreSQL
+
+## IDE used - PyCharm
